@@ -1,0 +1,18 @@
+{
+  "name": "bezier-easing",
+  "version": "0.1.0",
+  "description": "Bezier Curve based easing functions for Javascript animations",
+  "keywords": [
+    "easing",
+    "bezier",
+    "interpolation",
+    "animation"
+  ],
+  "author": "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>",
+  "main": "index.js",
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gre/bezier-easing.git"
+  }
+}
