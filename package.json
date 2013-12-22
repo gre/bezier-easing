@@ -1,6 +1,6 @@
 {
   "name": "bezier-easing",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Bezier Curve based easing functions for Javascript animations",
   "keywords": [
     "easing",

@@ -4,7 +4,7 @@
 * is inspired from Firefox's nsSMILKeySpline.cpp
 * Usage:
 * var spline = new BezierEasing(0.25, 0.1, 0.25, 1.0)
-* spline.get(x) => returns the easing value | x must be in [0, 1] range
+* spline(x) => returns the easing value | x must be in [0, 1] range
 */
 function BezierEasing (mX1, mY1, mX2, mY2) {
   if (!(this instanceof BezierEasing)) return new BezierEasing(mX1, mY1, mX2, mY2);
@@ -35,7 +35,7 @@ function BezierEasing (mX1, mY1, mX2, mY2) {
     return aGuessT;
   }
 
-  this.get = function(aX) {
+  return function (aX) {
     if (mX1 === mY1 && mX2 === mY2) return aX; // linear
     return CalcBezier(GetTForX(aX), mY1, mY2);
   };
