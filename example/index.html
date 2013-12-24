@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>body { text-align: center }</style>
+</head>
+<body>
+    <canvas id="viewport" width=1000 height=400></canvas>
+    <script src="../index.js"></script>
+    <script>
+var canvas = document.getElementById("viewport"), ctx = canvas.getContext("2d");
+
+setInterval(function(){
+  animate(moveRectangle, 2000, BezierEasing(0.25, 0.1, 0.0, 1.0));
+}, 2000);
+
+function moveRectangle (p) { // p move from 0 to 1
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "hsl("+Math.round(255*p)+",80%,50%)";
+  var w = 50;
+  var h = 50 + p * (canvas.height - 50);
+  ctx.fillRect((canvas.width-w) * p, (canvas.height-h)*0.5, w, h);
+}
+
+function animate (render, duration, easing) {
+  var start = Date.now();
+  (function loop () {
+    var p = (Date.now()-start)/duration;
+    if (p > 1) {
+      render(1);
+    }
+    else {
+      requestAnimationFrame(loop);
+      render(easing(p));
+    }
+  }());
+}
+    </script>
+</body>
+</html>
