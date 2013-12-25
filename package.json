@@ -1,6 +1,6 @@
 {
   "name": "bezier-easing",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Bezier Curve based easing functions for Javascript animations",
   "keywords": [
     "easing",
@@ -11,6 +11,13 @@
   "author": "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>",
   "main": "index.js",
   "license": "BSD",
+  "scripts": {
+      "test": "mocha"
+  },
+  "devDependencies": {
+      "mocha": "1.16.x",
+      "assert": "1.0.x"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/gre/bezier-easing.git"

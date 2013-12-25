@@ -18,6 +18,13 @@
   */
   function BezierEasing (mX1, mY1, mX2, mY2) {
     if (!(this instanceof BezierEasing)) return new BezierEasing(mX1, mY1, mX2, mY2);
+
+    // Validate arguments
+    if (arguments.length !== 4) throw new Error("BezierEasing requires 4 arguments.");
+    for (var i=0; i<4; ++i) {
+      if (typeof arguments[i] !== "number" || isNaN(arguments[i]) || !isFinite(arguments[i]))
+        throw new Error("BezierEasing arguments should be integers.");
+    }
    
     function A(aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
     function B(aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
@@ -45,10 +52,15 @@
       return aGuessT;
     }
 
-    return function (aX) {
+    // TODO: optimization to come: cache and pre-compute some samples for faster computation
+
+    var f = function (aX) {
       if (mX1 === mY1 && mX2 === mY2) return aX; // linear
       return CalcBezier(GetTForX(aX), mY1, mY2);
     };
+    var str = "BezierEasing("+[mX1, mY1, mX2, mY2]+")";
+    f.toString = function () { return str; };
+    return f;
   }
 
   // CSS mapping
