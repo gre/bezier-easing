@@ -23,7 +23,7 @@ function allEquals (be1, be2, samples, assertion) {
   }
 }
 
-function times (n) {
+function repeat (n) {
   return function (f) {
     for (var i=0; i<n; ++i) f(i);
   };
@@ -52,7 +52,7 @@ describe('BezierEasing', function(){
   });
   describe('common properties', function () {
     it('should be the right value at extremes', function () {
-      times(1000)(function () {
+      repeat(1000)(function () {
         var a = Math.random(), b = 2*Math.random()-0.5, c = Math.random(), d = 2*Math.random()-0.5;
         var easing = BezierEasing(a, b, c, d);
         assert.equal(easing(0), 0, easing+"(0) should be 0.");
@@ -63,7 +63,7 @@ describe('BezierEasing', function(){
     /*
     // FIXME: this test is not working and this is a serious proof that there is imprecision when the slope reach extrems
     it('should approach the projected value of its x=y projected curve', function () {
-      times(1000)(function () {
+      repeat(1000)(function () {
         var a = Math.random(), b = Math.random(), c = Math.random(), d = Math.random();
         var easing = BezierEasing(a, b, c, d);
         var projected = BezierEasing(b, a, d, c);
@@ -75,7 +75,7 @@ describe('BezierEasing', function(){
   });
   describe('two same instances', function () {
     it('should be strictly equals', function () {
-      times(100)(function () {
+      repeat(100)(function () {
         var a = Math.random(), b = 2*Math.random()-0.5, c = Math.random(), d = 2*Math.random()-0.5;
         allEquals(BezierEasing(a, b, c, d), BezierEasing(a, b, c, d), 100, 0);
       });
@@ -83,14 +83,14 @@ describe('BezierEasing', function(){
   });
   describe('symetric curves', function () {
     it('should have a central value y~=0.5 at x=0.5', function () {
-      times(100)(function () {
+      repeat(100)(function () {
         var a = Math.random(), b = 2*Math.random()-0.5, c = 1-a, d = 1-b;
         var easing = BezierEasing(a, b, c, d);
         assertClose(easing(0.5), 0.5, easing+"(0.5) should be 0.5");
       });
     });
     it('should be symetrical', function () {
-      times(100)(function () {
+      repeat(100)(function () {
         var a = Math.random(), b = 2*Math.random()-0.5, c = 1-a, d = 1-b;
         var easing = BezierEasing(a, b, c, d);
         var sym = function (x) { return 1 - easing(1-x); };

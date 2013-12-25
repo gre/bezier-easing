@@ -63,6 +63,15 @@ BezierEasing.css = {
 
 Perfect if you want for instance to make an abstraction on top of CSS and JavaScript animations.
 
+Run tests
+===
+
+[![Build Status](https://travis-ci.org/gre/bezier-easing.png)](https://travis-ci.org/gre/bezier-easing)
+
+```
+npm test
+```
+
 Who use it?
 ===
 
