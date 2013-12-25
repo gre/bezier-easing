@@ -1,4 +1,4 @@
-bezier-easing
+bezier-easing [![Build Status](https://travis-ci.org/gre/bezier-easing.png)](https://travis-ci.org/gre/bezier-easing)
 ===
 
 BezierEasing provides interpolation to make Bezier Curve based easing functions for your JavaScript animations.
