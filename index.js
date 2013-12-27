@@ -43,7 +43,7 @@
     function GetTForX(aX) {
       // Newton raphson iteration
       var aGuessT = aX;
-      for (var i = 0; i < 4; ++i) {
+      for (var i = 0; i < 8; ++i) {
         var currentSlope = GetSlope(aGuessT, mX1, mX2);
         if (currentSlope === 0.0) return aGuessT;
         var currentX = CalcBezier(aGuessT, mX1, mX2) - aX;
