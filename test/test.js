@@ -43,6 +43,12 @@ describe('BezierEasing', function(){
     assert.throws(function () { BezierEasing(1, 0, 1, "a"); });
     assert.throws(function () { BezierEasing(1, 0, 1, NaN); });
     assert.throws(function () { BezierEasing(1, 0, 1, Infinity); });
+    assert.throws(function () { BezierEasing(0.5, 0.5, -5, 0.5); });
+    assert.throws(function () { BezierEasing(0.5, 0.5, 5, 0.5); });
+    assert.throws(function () { BezierEasing(-2, 0.5, 0.5, 0.5); });
+    assert.throws(function () { BezierEasing(2, 0.5, 0.5, 0.5); });
+    assert.throws(function () { BezierEasing(-Math.random()-0.000001, 0.5, 0.5, 0.5); });
+    assert.throws(function () { BezierEasing(0.5, 0.5, 1.000001+Math.random(), 0.5); });
   });
   describe('linear curves', function () {
     it('should be linear', function () {
