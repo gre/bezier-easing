@@ -18,6 +18,8 @@ with BezierEasing, you can define it using `BezierEasing(0.42, 0, 0.58, 1)` whic
 
 [See it for real here](http://greweb.me/bezier-easing/example).
 
+[See also glsl-transition example](http://greweb.me/glsl-transition/).
+
 ```javscript
 var canvas = document.getElementById("viewport"), ctx = canvas.getContext("2d");
 
