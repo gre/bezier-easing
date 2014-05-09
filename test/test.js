@@ -72,7 +72,7 @@ describe('BezierEasing', function(){
         var easing = BezierEasing(a, b, c, d);
         var projected = BezierEasing(b, a, d, c);
         var composed = function (x) { return projected(easing(x)); };
-        allEquals(identity, composed, 100, makeAssertCloseWithPrecision(0.1)); // FIXME: we will need to improve the precision because removing this
+        allEquals(identity, composed, 100, makeAssertCloseWithPrecision(0.02));
       });
     });
   });
