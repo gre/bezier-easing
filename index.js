@@ -112,10 +112,15 @@
       }
     }
 
-    if (mX1 != mY1 || mX2 != mY2)
-      calcSampleValues();
+    var _precomputed = false;
+    function precompute() {
+      _precomputed = true;
+      if (mX1 != mY1 || mX2 != mY2)
+        calcSampleValues();
+    }
 
     var f = function (aX) {
+      if (!_precomputed) precompute();
       if (mX1 === mY1 && mX2 === mY2) return aX; // linear
       // Because JavaScript number are imprecise, we should guarantee the extremes are right.
       if (aX === 0) return 0;
