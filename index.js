@@ -16,6 +16,7 @@
     window.BezierEasing = definition();
   }
 }(function () {
+  var global = this;
 
   // These values are established by empiricism with tests (tradeoff: performance VS precision)
   var NEWTON_ITERATIONS = 4;
@@ -26,7 +27,7 @@
   var kSplineTableSize = 11;
   var kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
 
-  var float32ArraySupported = typeof Float32Array === "function";
+  var float32ArraySupported = 'Float32Array' in global;
 
   function BezierEasing (mX1, mY1, mX2, mY2) {
     // Validate arguments
