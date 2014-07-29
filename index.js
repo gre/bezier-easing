@@ -130,6 +130,8 @@
       if (aX === 1) return 1;
       return calcBezier(getTForX(aX), mY1, mY2);
     };
+
+    f.getControlPoints = function() { return [{ x: mX1, y: mY1 }, { x: mX2, y: mY2 }]; };
     var str = "BezierEasing("+[mX1, mY1, mX2, mY2]+")";
     f.toString = function () { return str; };
 
