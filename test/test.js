@@ -36,6 +36,20 @@ describe('BezierEasing', function(){
   it('should returns a function', function(){
     assert.ok(typeof BezierEasing(0, 0, 1, 1) === "function");
   });
+  describe('instance method: toString', function() {
+    it('should return "BezierEasing(args)"', function() {
+      assert.equal(BezierEasing(0, 0, 1, 1).toString(), "BezierEasing(0,0,1,1)");
+    });
+  });
+  describe('instance method: getControlPoints', function() {
+    it('should return the curve\'s control points', function() {
+      var pts = BezierEasing(0, 0, 1, 1).getControlPoints();
+      assert.equal(pts[0].x, 0, "first control point x should be 0");
+      assert.equal(pts[0].y, 0, "first control point y should be 0");
+      assert.equal(pts[1].x, 1, "second control point x should be 1");
+      assert.equal(pts[1].y, 1, "second control point y should be 1");
+    });
+  });
   it('should fail with wrong arguments', function () {
     assert.throws(function () { BezierEasing(); });
     assert.throws(function () { BezierEasing(1); });
