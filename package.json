@@ -1,6 +1,6 @@
 {
   "name": "bezier-easing",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Bezier Curve based easing functions for Javascript animations",
   "keywords": [
     "cubic-bezier",
@@ -15,11 +15,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-      "test": "mocha"
+    "test": "mocha"
   },
   "devDependencies": {
-      "mocha": "1.16.x",
-      "assert": "1.0.x"
+    "mocha": "1.16.x",
+    "assert": "1.0.x"
   },
   "repository": {
     "type": "git",
