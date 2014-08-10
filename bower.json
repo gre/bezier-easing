@@ -1,0 +1,31 @@
+{
+  "name": "bezier-easing",
+  "main": "index.js",
+  "version": "0.4.3",
+  "homepage": "https://github.com/gre/bezier-easing",
+  "authors": [
+    "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>"
+  ],
+  "description": "Bezier Curve based easing functions for Javascript animations",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "cubic-bezier",
+    "bezier",
+    "easing",
+    "interpolation",
+    "animation",
+    "timing",
+    "timing-function"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
