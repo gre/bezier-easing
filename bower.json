@@ -9,7 +9,8 @@
   "description": "Bezier Curve based easing functions for Javascript animations",
   "moduleType": [
     "globals",
-    "node"
+    "node",
+    "amd"
   ],
   "keywords": [
     "cubic-bezier",
