@@ -11,9 +11,8 @@
 (function (definition) {
   if (typeof exports === "object") {
     module.exports = definition();
-  }
-  else if (typeof window.define === 'function' && window.define.amd) {
-    window.define([], definition);
+  } else if (typeof define === 'function' && define.amd) {
+    define([], definition);
   } else {
     window.BezierEasing = definition();
   }
