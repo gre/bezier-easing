@@ -107,7 +107,7 @@
       var initialSlope = getSlope(guessForT, mX1, mX2);
       if (initialSlope >= NEWTON_MIN_SLOPE) {
         return newtonRaphsonIterate(aX, guessForT);
-      } else if (initialSlope == 0.0) {
+      } else if (initialSlope === 0.0) {
         return guessForT;
       } else {
         return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize);
@@ -131,8 +131,13 @@
     };
 
     f.getControlPoints = function() { return [{ x: mX1, y: mY1 }, { x: mX2, y: mY2 }]; };
-    var str = "BezierEasing("+[mX1, mY1, mX2, mY2]+")";
+
+    var args = [mX1, mY1, mX2, mY2];
+    var str = "BezierEasing("+args+")";
     f.toString = function () { return str; };
+
+    var css = "cubic-bezier("+args+")";
+    f.toCSS = function () { return css; };
 
     return f;
   }

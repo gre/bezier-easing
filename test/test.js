@@ -41,6 +41,11 @@ describe('BezierEasing', function(){
       assert.equal(BezierEasing(0, 0, 1, 1).toString(), "BezierEasing(0,0,1,1)");
     });
   });
+  describe('instance method: toCSS', function () {
+    it('should returns "cubic-bezier(args)"', function () {
+      assert.equal(BezierEasing(0, 0, 1, 1).toCSS(), "cubic-bezier(0,0,1,1)");
+    });
+  });
   describe('instance method: getControlPoints', function() {
     it('should return the curve\'s control points', function() {
       var pts = BezierEasing(0, 0, 1, 1).getControlPoints();
@@ -86,7 +91,7 @@ describe('BezierEasing', function(){
         var easing = BezierEasing(a, b, c, d);
         var projected = BezierEasing(b, a, d, c);
         var composed = function (x) { return projected(easing(x)); };
-        allEquals(identity, composed, 100, makeAssertCloseWithPrecision(0.02));
+        allEquals(identity, composed, 100, makeAssertCloseWithPrecision(0.05));
       });
     });
   });
