@@ -3,56 +3,42 @@ bezier-easing [![Build Status](https://travis-ci.org/gre/bezier-easing.png)](htt
 
 BezierEasing provides interpolation to make Bezier Curve based easing functions for your JavaScript animations.
 
-MIT License.
+Usage
+-------
+
+```javascript
+var easing = BezierEasing(0, 0, 1, 0.5);
+// easing is a function which projects x in [0.0, 1.0] onto the bezier-curve defined by the 4 points (see schema below).
+console.log(easing(0.0)); // 0.0
+console.log(easing(0.5)); // 0.3125
+console.log(easing(1.0)); // 1.0
+```
+
+(this schema is from the CSS spec)
+
+[![TimingFunction.png](http://www.w3.org/TR/css3-transitions/TimingFunction.png)](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property)
+
+Install
+-------
 
 [![npm install bezier-easing](https://nodei.co/npm/bezier-easing.png)](http://npmjs.org/package/bezier-easing)
 
 It is the equivalent to [CSS Transitions' `transition-timing-function`](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property).
 
-See this schema from the CSS spec:
 
-[![TimingFunction.png](http://www.w3.org/TR/css3-transitions/TimingFunction.png)](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property)
+In the same way you can define in CSS `cubic-bezier(0.42, 0, 0.58, 1)`, 
+with BezierEasing, you can define it using `BezierEasing(0.42, 0, 0.58, 1)` which retuns a function taking an X and computing the Y interpolated easing value (see schema).
 
-In CSS you can define easing with `cubic-bezier(0.42, 0, 0.58, 1)`, 
-with BezierEasing, you can define it using `BezierEasing(0.42, 0, 0.58, 1)` which retuns a function taking an X and computing the Y interpolated easing value (see the schema).
 
-**Example:**
+Example:
+-------
 
-* [See also glsl-transition example](http://greweb.me/glsl-transition/).
-* [See it for real here](http://greweb.me/bezier-easing/example).
-
-```javscript
-var canvas = document.getElementById("viewport"), ctx = canvas.getContext("2d");
-
-animate(moveRectangle, 2000, BezierEasing(0.25, 0.1, 0.0, 1.0));
-
-function moveRectangle (p) { // p move from 0 to 1
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "hsl("+Math.round(255*p)+",80%,50%)";
-  var w = 50;
-  var h = 50 + p * (canvas.height - 50);
-  ctx.fillRect((canvas.width-w) * p, (canvas.height-h)*0.5, w, h);
-}
-
-function animate (render, duration, easing) {
-  var start = Date.now();
-  (function loop () {
-    var p = (Date.now()-start)/duration;
-    if (p > 1) {
-      render(1);
-    }
-    else {
-      requestAnimationFrame(loop);
-      render(easing(p));
-    }
-  }());
-}
-```
+* [See glsl-transition example](http://greweb.me/glsl-transition/).
 
 Predefined BezierEasing functions
 ---
 
-We have defined for you all existing CSS `transition-timing-function` :
+**bezier-easing** also define a mapping from existing CSS `transition-timing-function` :
 
 ```javscript
 BezierEasing.css = {
@@ -64,10 +50,13 @@ BezierEasing.css = {
 };
 ```
 
-Perfect if you want for instance to make an abstraction on top of CSS and JavaScript animations.
+License
+-------
 
-Run tests
-===
+MIT License.
+
+Tests
+---
 
 [![Build Status](https://travis-ci.org/gre/bezier-easing.png)](https://travis-ci.org/gre/bezier-easing)
 
@@ -82,7 +71,7 @@ Who use it?
 - [Velocity.js](https://github.com/julianshapiro/velocity)
 
 More informations
-===
+-----------------
 
 Implementation based on this [article](http://greweb.me/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation/).
 
