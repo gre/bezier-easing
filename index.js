@@ -44,7 +44,7 @@
     return 3.0 * A(aA1, aA2)*aT*aT + 2.0 * B(aA1, aA2) * aT + C(aA1);
   }
 
-  function binarySubdivide (aX, aA, aB) {
+  function binarySubdivide (aX, aA, aB, mX1, mX2) {
     var currentX, currentT, i = 0;
     do {
       currentT = aA + (aB - aA) / 2.0;
@@ -110,7 +110,7 @@
       } else if (initialSlope === 0.0) {
         return guessForT;
       } else {
-        return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize);
+        return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize, mX1, mX2);
       }
     }
 
