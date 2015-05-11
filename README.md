@@ -64,6 +64,11 @@ Tests
 npm test
 ```
 
+See also
+===
+
+- [https://github.com/gre/bezier-easing-editor/](https://github.com/gre/bezier-easing-editor/)
+
 Who use it?
 ===
 
