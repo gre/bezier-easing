@@ -18,8 +18,9 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "1.16.x",
-    "assert": "1.0.x"
+    "assert": "1.0.x",
+    "benchmark": "^1.0.0",
+    "mocha": "1.16.x"
   },
   "repository": {
     "type": "git",
