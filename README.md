@@ -26,7 +26,7 @@ Install
 It is the equivalent to [CSS Transitions' `transition-timing-function`](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property).
 
 
-In the same way you can define in CSS `cubic-bezier(0.42, 0, 0.58, 1)`, 
+In the same way you can define in CSS `cubic-bezier(0.42, 0, 0.58, 1)`,
 with BezierEasing, you can define it using `BezierEasing(0.42, 0, 0.58, 1)` which retuns a function taking an X and computing the Y interpolated easing value (see schema).
 
 
@@ -42,7 +42,7 @@ Predefined BezierEasing functions
 
 ```javscript
 BezierEasing.css = {
-  "ease":        BezierEasing(0.25, 0.1, 0.25, 1.0), 
+  "ease":        BezierEasing(0.25, 0.1, 0.25, 1.0),
   "linear":      BezierEasing(0.00, 0.0, 1.00, 1.0),
   "ease-in":     BezierEasing(0.42, 0.0, 1.00, 1.0),
   "ease-out":    BezierEasing(0.00, 0.0, 0.58, 1.0),
@@ -94,7 +94,7 @@ npm install
 
 The library is in `index.js`.
 
-Ensure any modication will: 
+Ensure any modication will:
 - keep validating the tests (run `npm test`)
-- not bring performance regression (compare with `node benchmark.js` – don't rely 100% on its precision but it still helps to notice big gaps)
+- not bring performance regression (compare with `npm run benchmark` – don't rely 100% on its precision but it still helps to notice big gaps)
 - Run the visual example: `npm run visual`
