@@ -74,9 +74,27 @@ Who use it?
 
 - [Apple®](http://images.apple.com/v/mac-pro/home/b/scripts/overview.js) :)
 - [Velocity.js](https://github.com/julianshapiro/velocity)
+- [GLSL.io](http://glsl.io/) and [Diaporama Maker](https://github.com/gre/diaporama-maker)
 
 More informations
 -----------------
 
 Implementation based on this [article](http://greweb.me/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation/).
 
+Contributing
+------------
+
+You need a `node` installed.
+
+Install the deps:
+
+```
+npm install
+```
+
+The library is in `index.js`.
+
+Ensure any modication will: 
+- keep validating the tests (run `npm test`)
+- not bring performance regression (compare with `node benchmark.js` – don't rely 100% on its precision but it still helps to notice big gaps)
+- Run the visual example: `npm run visual`
