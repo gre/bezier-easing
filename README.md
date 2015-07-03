@@ -9,9 +9,9 @@ Usage
 ```javascript
 var easing = BezierEasing(0, 0, 1, 0.5);
 // easing is a function which projects x in [0.0, 1.0] onto the bezier-curve defined by the 4 points (see schema below).
-console.log(easing(0.0)); // 0.0
-console.log(easing(0.5)); // 0.3125
-console.log(easing(1.0)); // 1.0
+console.log(easing.get(0.0)); // 0.0
+console.log(easing.get(0.5)); // 0.3125
+console.log(easing.get(1.0)); // 1.0
 ```
 
 (this schema is from the CSS spec)
