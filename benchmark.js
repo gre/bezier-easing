@@ -5,18 +5,18 @@ var suite = new Benchmark.Suite();
 
 var random = Math.random;
 
-var bezier = BezierEasing(0.2, 0.3, 1.0, 0.5);
+var bezier = BezierEasing([ 0.2, 0.3, 1.0, 0.5 ]);
 
 suite
 .add('BezierEasing: instanciation', function() {
-  BezierEasing(random(), random(), random(), random());
+  BezierEasing([ random(), random(), random(), random() ]);
 })
 .add('BezierEasing: call', function() {
-  bezier(random());
+  bezier.get(random());
 })
 .add('BezierEasing: instanciation + call', function() {
-  var bezier = BezierEasing(random(), random(), random(), random());
-  bezier(random());
+  var bezier = BezierEasing([ random(), random(), random(), random() ]);
+  bezier.get(random());
 })
 // add listeners
 .on('cycle', function(event) {
