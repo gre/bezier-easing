@@ -9,7 +9,6 @@
  *
  */
 
-
 // These values are established by empiricism with tests (tradeoff: performance VS precision)
 var NEWTON_ITERATIONS = 4;
 var NEWTON_MIN_SLOPE = 0.001;
@@ -168,11 +167,11 @@ BezierEasing.prototype = {
 
 // CSS mapping
 BezierEasing.css = {
-  "ease":        BezierEasing([ 0.25, 0.1, 0.25, 1.0 ]),
-  "linear":      BezierEasing([ 0.00, 0.0, 1.00, 1.0 ]),
-  "ease-in":     BezierEasing([ 0.42, 0.0, 1.00, 1.0 ]),
-  "ease-out":    BezierEasing([ 0.00, 0.0, 0.58, 1.0 ]),
-  "ease-in-out": BezierEasing([ 0.42, 0.0, 0.58, 1.0 ])
+  "ease":        BezierEasing.ease      = BezierEasing(0.25, 0.1, 0.25, 1.0),
+  "linear":      BezierEasing.linear    = BezierEasing(0.00, 0.0, 1.00, 1.0),
+  "ease-in":     BezierEasing.easeIn    = BezierEasing(0.42, 0.0, 1.00, 1.0),
+  "ease-out":    BezierEasing.easeOut   = BezierEasing(0.00, 0.0, 0.58, 1.0),
+  "ease-in-out": BezierEasing.easeInOut = BezierEasing(0.42, 0.0, 0.58, 1.0)
 };
 
 module.exports = BezierEasing;

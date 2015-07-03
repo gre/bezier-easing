@@ -1,7 +1,13 @@
 bezier-easing [![Build Status](https://travis-ci.org/gre/bezier-easing.png)](https://travis-ci.org/gre/bezier-easing)
 ===
 
-BezierEasing provides interpolation to make Bezier Curve based easing functions for your JavaScript animations.
+BezierEasing provides **Cubic Bezier** Curve easing which generalizes easing functions (ease-in, ease-out, ease-in-out, ...any other custom curve) exactly like in CSS Transitions.
+
+Implementing efficient lookup is not easy because it implies projecting
+the X coordinate to a Bezier Curve.
+This micro library uses fast heuristics (involving dichotomic search, newton-raphson, sampling) to focus on **performance** and **precision**.
+
+> It is heavily based on implementations available in Firefox and Chrome (for the CSS transition-timing-function property).
 
 Usage
 -------
@@ -27,7 +33,7 @@ It is the equivalent to [CSS Transitions' `transition-timing-function`](http://w
 
 
 In the same way you can define in CSS `cubic-bezier(0.42, 0, 0.58, 1)`,
-with BezierEasing, you can define it using `BezierEasing(0.42, 0, 0.58, 1)` which retuns a function taking an X and computing the Y interpolated easing value (see schema).
+with BezierEasing, you can define it using `BezierEasing(0.42, 0, 0.58, 1)` which have the `.get` function taking an X and computing the Y interpolated easing value (see schema).
 
 
 Example:
@@ -42,13 +48,15 @@ Predefined BezierEasing functions
 
 ```javscript
 BezierEasing.css = {
-  "ease":        BezierEasing(0.25, 0.1, 0.25, 1.0),
-  "linear":      BezierEasing(0.00, 0.0, 1.00, 1.0),
-  "ease-in":     BezierEasing(0.42, 0.0, 1.00, 1.0),
-  "ease-out":    BezierEasing(0.00, 0.0, 0.58, 1.0),
-  "ease-in-out": BezierEasing(0.42, 0.0, 0.58, 1.0)
+  "ease":        BezierEasing.ease = BezierEasing(0.25, 0.1, 0.25, 1.0),
+  "linear":      BezierEasing.linear = BezierEasing(0.00, 0.0, 1.00, 1.0),
+  "ease-in":     BezierEasing.easeIn = BezierEasing(0.42, 0.0, 1.00, 1.0),
+  "ease-out":    BezierEasing.easeOut = BezierEasing(0.00, 0.0, 0.58, 1.0),
+  "ease-in-out": BezierEasing.easeInOut = BezierEasing(0.42, 0.0, 0.58, 1.0)
 };
 ```
+
+There is also a `toCSS()` method that returns the transition-timing-function value string (so the library is agnostic).
 
 License
 -------
