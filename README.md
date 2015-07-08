@@ -36,11 +36,6 @@ In the same way you can define in CSS `cubic-bezier(0.42, 0, 0.58, 1)`,
 with BezierEasing, you can define it using `BezierEasing(0.42, 0, 0.58, 1)` which have the `.get` function taking an X and computing the Y interpolated easing value (see schema).
 
 
-Example:
--------
-
-* [See glsl-transition example](http://greweb.me/glsl-transition/).
-
 Predefined BezierEasing functions
 ---
 
