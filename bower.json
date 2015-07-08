@@ -1,12 +1,12 @@
 {
   "name": "bezier-easing",
   "main": "index.js",
-  "version": "0.4.3",
+  "version": "1.0.0",
   "homepage": "https://github.com/gre/bezier-easing",
   "authors": [
     "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>"
   ],
-  "description": "Bezier Curve based easing functions for Javascript animations",
+  "description": "BezierEasing provides Cubic Bezier Curve easing which generalizes easing functions exactly like in CSS Transitions.",
   "moduleType": [
     "globals",
     "node",

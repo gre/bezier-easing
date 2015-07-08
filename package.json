@@ -17,13 +17,16 @@
   "scripts": {
     "test": "mocha",
     "benchmark": "node benchmark.js",
-    "visual": "budo visual-demo.js"
+    "visual": "budo visual-demo.js",
+    "build": "browserify --standalone BezierEasing index.js | uglifyjs -cm > build.js"
   },
   "devDependencies": {
     "assert": "1.0.x",
     "benchmark": "^1.0.0",
+    "browserify": "^10.2.4",
     "budo": "^4.0.0",
-    "mocha": "1.16.x"
+    "mocha": "1.16.x",
+    "uglify-js": "^2.4.23"
   },
   "repository": {
     "type": "git",
