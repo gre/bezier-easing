@@ -84,6 +84,8 @@ function BezierEasing (points, b, c, d) {
   this._p = points;
   this._mSampleValues = float32ArraySupported ? new Float32Array(kSplineTableSize) : new Array(kSplineTableSize);
   this._precomputed = false;
+
+  this.get = this.get.bind(this);
 }
 
 BezierEasing.prototype = {
