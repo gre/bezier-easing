@@ -9,6 +9,17 @@
  *
  */
 
+(function(definition) {
+  /* global module, define */
+  if(typeof module === 'object' && typeof module.exports === 'object') {
+    module.exports = definition();
+  } else if(typeof define === 'function' && define.amd) {
+    define([], definition);
+  } else {
+    window.BezierEasing = definition();
+  }
+})(function() {
+
 // These values are established by empiricism with tests (tradeoff: performance VS precision)
 var NEWTON_ITERATIONS = 4;
 var NEWTON_MIN_SLOPE = 0.001;
@@ -176,4 +187,6 @@ BezierEasing.css = {
   "ease-in-out": BezierEasing.easeInOut = BezierEasing(0.42, 0.0, 0.58, 1.0)
 };
 
-module.exports = BezierEasing;
+return BezierEasing;
+
+});
