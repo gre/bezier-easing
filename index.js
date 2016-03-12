@@ -1,8 +1,6 @@
 /**
  * BezierEasing - use bezier curve for transition easing function
  * by Gaëtan Renaudeau 2014 - 2015 – MIT License
- *
- * @providesModule bezier
  */
 
 // These values are established by empiricism with tests (tradeoff: performance VS precision)
@@ -89,7 +87,7 @@ module.exports = function bezier (mX1, mY1, mX2, mY2) {
     }
   }
 
-  return function (x) {
+  return function BezierEasing (x) {
     if (mX1 === mY1 && mX2 === mY2) {
       return x; // linear
     }
