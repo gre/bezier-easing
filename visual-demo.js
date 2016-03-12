@@ -19,7 +19,7 @@ function create (n, w, lh, easing) {
   }
   return function (t) {
     for (var i=0; i<els.length; ++i) {
-      var percent = easing.get((1 + Math.cos((t + i * 200) / 1500)) / 2);
+      var percent = easing((1 + Math.cos((t + i * 200) / 1500)) / 2);
       els[i].style.transform = "translateX("+(percent * 100)+"%)";
     }
   };
@@ -29,12 +29,12 @@ var w = 200;
 var n = 100;
 var lh = 6;
 var renders = []
-.concat(create(n, w, lh, BezierEasing([ 0.2, 0.3, 1.0, 0.2 ])))
-.concat(create(n, w, lh, BezierEasing([ 0.1, 0.0, 1.0, 0.95 ])))
-.concat(create(n, w, lh, BezierEasing([ 0.2, 1.0, 1.0, 1.0 ])))
-.concat(create(n, w, lh, BezierEasing([ 0.8,0.5,0.0,0.8 ])))
-.concat(create(n, w, lh, BezierEasing([ 0.16,1,0.7,0.0 ])))
-.concat(create(n, w, lh, BezierEasing([ 0.03,0.9,0.2,0.46 ])));
+.concat(create(n, w, lh, BezierEasing( 0.2, 0.3, 1.0, 0.2 )))
+.concat(create(n, w, lh, BezierEasing( 0.1, 0.0, 1.0, 0.95 )))
+.concat(create(n, w, lh, BezierEasing( 0.2, 1.0, 1.0, 1.0 )))
+.concat(create(n, w, lh, BezierEasing( 0.8,0.5,0.0,0.8 )))
+.concat(create(n, w, lh, BezierEasing( 0.16,1,0.7,0.0 )))
+.concat(create(n, w, lh, BezierEasing( 0.03,0.9,0.2,0.46 )));
 
 requestAnimationFrame(function loop (t) {
   requestAnimationFrame(loop);
