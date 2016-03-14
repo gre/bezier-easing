@@ -57,6 +57,7 @@ See also
 Who use it?
 ===
 
+- [React Native](https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/bezier.js)
 - [Apple®](http://images.apple.com/v/mac-pro/home/b/scripts/overview.js) :)
 - [Velocity.js](https://github.com/julianshapiro/velocity)
 - [GLSL.io](http://glsl.io/) and [Diaporama Maker](https://github.com/gre/diaporama-maker)

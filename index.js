@@ -20,7 +20,7 @@ function B (aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
 function C (aA1)      { return 3.0 * aA1; }
 
 // Returns x(t) given t, x1, and x2, or y(t) given t, y1, and y2.
-function calcBezier (aT, aA1, aA2) { return((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
+function calcBezier (aT, aA1, aA2) { return ((A(aA1, aA2) * aT + B(aA1, aA2)) * aT + C(aA1)) * aT; }
 
 // Returns dx/dt given t, x1, and x2, or dy/dt given t, y1, and y2.
 function getSlope (aT, aA1, aA2) { return 3.0 * A(aA1, aA2) * aT * aT + 2.0 * B(aA1, aA2) * aT + C(aA1); }
