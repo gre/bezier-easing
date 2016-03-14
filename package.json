@@ -1,6 +1,6 @@
 {
   "name": "bezier-easing",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "BezierEasing provides Cubic Bezier Curve easing which generalizes easing functions exactly like in CSS Transitions.",
   "keywords": [
     "cubic-bezier",
@@ -13,7 +13,10 @@
   ],
   "author": "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>",
   "main": "src/index.js",
-  "files": ["src", "dist"],
+  "files": [
+    "src",
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "test": "mocha",
