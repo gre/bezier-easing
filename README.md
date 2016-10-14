@@ -61,6 +61,7 @@ Who use it?
 - [Apple®](http://images.apple.com/v/mac-pro/home/b/scripts/overview.js) :)
 - [Velocity.js](https://github.com/julianshapiro/velocity)
 - [GLSL.io](http://glsl.io/) and [Diaporama Maker](https://github.com/gre/diaporama-maker)
+- [ipo](https://github.com/gre/ipo)
 
 More informations
 -----------------
