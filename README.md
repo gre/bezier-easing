@@ -24,6 +24,8 @@ console.log(easing(1.0)); // 1.0
 
 [![TimingFunction.png](http://www.w3.org/TR/css3-transitions/TimingFunction.png)](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property)
 
+> `BezierEasing(P1.x, P1.y, P2.x, P2.y)`
+
 Install
 -------
 
