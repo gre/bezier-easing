@@ -13,6 +13,7 @@
   ],
   "author": "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>",
   "main": "src/index.js",
+  "types": "src/index.d.ts",  
   "files": [
     "src",
     "dist"
