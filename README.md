@@ -26,6 +26,7 @@ console.log(easing(0.5)); // 0.802403387584857
 console.log(easing(1.0)); // 1.0
 
 (this schema is from the CSS spec)
+```
 
 [![TimingFunction.png](http://www.w3.org/TR/css3-transitions/TimingFunction.png)](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property)
 
