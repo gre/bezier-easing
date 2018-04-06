@@ -55,7 +55,7 @@ module.exports = function bezier (arg1, arg2, arg3, arg4) {
   var mX1, mY1, mX2, mY2;
   if (typeof arg1 == 'string') {
     //https://drafts.csswg.org/css-timing/#valdef-cubic-bezier-timing-function-ease
-    switch (mx1) {
+    switch (arg1) {
       case 'ease':
         mX1 = 0.25, mY1 = 0.1, mX2 = 0.25, mY2 = 1;
         break;
