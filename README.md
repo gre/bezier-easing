@@ -19,6 +19,12 @@ console.log(easing(0.0)); // 0.0
 console.log(easing(0.5)); // 0.3125
 console.log(easing(1.0)); // 1.0
 ```
+```javascript
+var easing = BezierEasing('ease'); // ease || ease-in || ease-out || ease-in-out
+console.log(easing(0.0)); // 0.0
+console.log(easing(0.5)); // 0.802403387584857
+console.log(easing(1.0)); // 1.0
+```
 
 (this schema is from the CSS spec)
 
