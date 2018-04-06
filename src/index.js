@@ -51,7 +51,30 @@ function newtonRaphsonIterate (aX, aGuessT, mX1, mX2) {
  return aGuessT;
 }
 
-module.exports = function bezier (mX1, mY1, mX2, mY2) {
+module.exports = function bezier (arg1, arg2, arg3, arg4) {
+  var mX1, mY1, mX2, mY2;
+  if (typeof arg1 == 'string') {
+    //https://drafts.csswg.org/css-timing/#valdef-cubic-bezier-timing-function-ease
+    switch (mx1) {
+      case 'ease':
+        mX1 = 0.25, mY1 = 0.1, mX2 = 0.25, mY2 = 1;
+        break;
+      case 'ease-in':
+        mX1 = 0.42, mY1 = 0, mX2 = 1, mY2 = 1;
+        break;
+      case 'ease-out':
+        mX1 = 0, mY1 = 0, mX2 = 0.58, mY2 = 1;
+        break;
+      case 'ease-in-out':
+        mX1 = 0.42, mY1 = 0, mX2 = 0.58, mY2 = 1;
+        break;
+      default: //ease
+        mX1 = 0.25, mY1 = 0.1, mX2 = 0.25, mY2 = 1;
+        break; 
+    }
+  }else{
+    mX1 = arg1, mY1 = arg2, mX2 = arg3, mY2 = arg4;
+  }
   if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) {
     throw new Error('bezier x values must be in [0, 1] range');
   }
