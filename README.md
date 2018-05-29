@@ -22,7 +22,7 @@ console.log(easing(1.0)); // 1.0
 
 (this schema is from the CSS spec)
 
-[![TimingFunction.png](http://www.w3.org/TR/css3-transitions/TimingFunction.png)](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property)
+[![TimingFunction.png](https://www.w3.org/TR/css-timing-1/cubic-bezier-timing-curve.svg)](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property)
 
 > `BezierEasing(P1.x, P1.y, P2.x, P2.y)`
 
