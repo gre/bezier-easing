@@ -45,7 +45,7 @@ MIT License.
 Tests
 ---
 
-[![Build Status](https://travis-ci.org/gre/bezier-easing.png)](https://travis-ci.org/gre/bezier-easing)
+[![Build Status](https://img.shields.io/travis/gre/bezier-easing.svg)](https://travis-ci.org/gre/bezier-easing)
 
 ```
 npm test
