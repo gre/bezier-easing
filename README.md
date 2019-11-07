@@ -1,4 +1,4 @@
-bezier-easing [![Build Status](https://travis-ci.org/gre/bezier-easing.png)](https://travis-ci.org/gre/bezier-easing)
+bezier-easing [![Build Status](https://img.shields.io/travis/gre/bezier-easing.svg)](https://travis-ci.org/gre/bezier-easing)
 ===
 
 BezierEasing provides **Cubic Bezier** Curve easing which generalizes easing functions (ease-in, ease-out, ease-in-out, ...any other custom curve) exactly like in CSS Transitions.
@@ -45,7 +45,7 @@ MIT License.
 Tests
 ---
 
-[![Build Status](https://travis-ci.org/gre/bezier-easing.png)](https://travis-ci.org/gre/bezier-easing)
+[![Build Status](https://img.shields.io/travis/gre/bezier-easing.svg)](https://travis-ci.org/gre/bezier-easing)
 
 ```
 npm test

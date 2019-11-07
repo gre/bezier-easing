@@ -96,11 +96,8 @@ module.exports = function bezier (mX1, mY1, mX2, mY2) {
 
   return function BezierEasing (x) {
     // Because JavaScript number are imprecise, we should guarantee the extremes are right.
-    if (x === 0) {
-      return 0;
-    }
-    if (x === 1) {
-      return 1;
+    if (x === 0 || x === 1) {
+      return x;
     }
     return calcBezier(getTForX(x), mY1, mY2);
   };
