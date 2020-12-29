@@ -30,10 +30,10 @@
   "devDependencies": {
     "assert": "^2.0.0",
     "benchmark": "^2.1.0",
-    "browserify": "^16.5.0",
-    "budo": "^11.6.3",
-    "mocha": "^6.2.0",
-    "uglify-js": "^3.6.0"
+    "browserify": "^17.0.0",
+    "budo": "^11.6.4",
+    "mocha": "^8.2.1",
+    "uglify-js": "^3.12.3"
   },
   "repository": {
     "type": "git",
