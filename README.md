@@ -31,7 +31,7 @@ Install
 
 [![npm install bezier-easing](https://nodei.co/npm/bezier-easing.png)](http://npmjs.org/package/bezier-easing)
 
-It is the equivalent to [CSS Transitions' `transition-timing-function`](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property).
+It is the equivalent to [CSS Transitions' `transition-timing-function`](http://www.w3.org/TR/css-easing-1/#cubic-bezier-easing-functions).
 
 
 In the same way you can define in CSS `cubic-bezier(0.42, 0, 0.58, 1)`,
