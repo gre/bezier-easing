@@ -1,13 +1,9 @@
-
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-      "module": "commonjs",
-      "noEmit": true,
-      "noImplicitAny": true
-    },
-    "files": [
-      "../src/index.d.ts",
-      "./index-tests.ts"
-    ]
-  }
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "noEmit": true,
+    "noImplicitAny": true
+  },
+  "files": ["../src/index.d.ts", "./index-tests.ts"]
+}
