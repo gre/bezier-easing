@@ -1,6 +1,6 @@
 {
   "name": "bezier-easing",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "BezierEasing provides Cubic Bezier Curve easing which generalizes easing functions exactly like in CSS Transitions.",
   "keywords": [
     "cubic-bezier",
