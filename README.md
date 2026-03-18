@@ -81,9 +81,8 @@ Install the deps:
 npm install
 ```
 
-The library is in `index.js`.
+The library is in `src/index.js`.
 
-Ensure any modication will:
+Ensure any modification will:
 - keep validating the tests (run `npm test`)
 - not bring performance regression (compare with `npm run benchmark` – don't rely 100% on its precision but it still helps to notice big gaps)
-- Run the visual example: `npm run visual`

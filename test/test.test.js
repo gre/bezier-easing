@@ -1,12 +1,11 @@
-
-var BezierEasing = require("..");
-var assert = require("assert");
+import { describe, it, expect } from "vitest";
+import BezierEasing from "..";
 
 var identity = function (x) { return x; };
 
 function assertClose (a, b, message, precision) {
   if (!precision) precision = 0.000001;
-  assert(Math.abs(a-b) < precision, message);
+  expect(Math.abs(a-b), message).toBeLessThan(precision);
 }
 
 function makeAssertCloseWithPrecision (precision) {
@@ -31,16 +30,16 @@ function repeat (n) {
 
 describe('BezierEasing', function(){
   it('should be a function', function(){
-    assert.ok(typeof BezierEasing === "function");
+    expect(typeof BezierEasing).toBe("function");
   });
   it('should creates an object', function(){
-    assert.ok(typeof BezierEasing(0, 0, 1, 1) === "function");
+    expect(typeof BezierEasing(0, 0, 1, 1)).toBe("function");
   });
   it('should fail with wrong arguments', function () {
-    assert.throws(function () { BezierEasing(0.5, 0.5, -5, 0.5); });
-    assert.throws(function () { BezierEasing(0.5, 0.5, 5, 0.5); });
-    assert.throws(function () { BezierEasing(-2, 0.5, 0.5, 0.5); });
-    assert.throws(function () { BezierEasing(2, 0.5, 0.5, 0.5); });
+    expect(function () { BezierEasing(0.5, 0.5, -5, 0.5); }).toThrow();
+    expect(function () { BezierEasing(0.5, 0.5, 5, 0.5); }).toThrow();
+    expect(function () { BezierEasing(-2, 0.5, 0.5, 0.5); }).toThrow();
+    expect(function () { BezierEasing(2, 0.5, 0.5, 0.5); }).toThrow();
   });
   describe('linear curves', function () {
     it('should be linear', function () {
@@ -53,8 +52,8 @@ describe('BezierEasing', function(){
       repeat(1000)(function () {
         var a = Math.random(), b = 2*Math.random()-0.5, c = Math.random(), d = 2*Math.random()-0.5;
         var easing = BezierEasing(a, b, c, d);
-        assert.equal(easing(0), 0, easing+"(0) should be 0.");
-        assert.equal(easing(1), 1, easing+"(1) should be 1.");
+        expect(easing(0)).toBe(0);
+        expect(easing(1)).toBe(1);
       });
     });
 
