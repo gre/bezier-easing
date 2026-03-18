@@ -1,4 +1,4 @@
-# bezier-easing [![Build Status](https://img.shields.io/travis/gre/bezier-easing.svg)](https://travis-ci.org/gre/bezier-easing)
+# bezier-easing
 
 BezierEasing provides **Cubic Bezier** Curve easing which generalizes easing functions (ease-in, ease-out, ease-in-out, ...any other custom curve) exactly like in CSS Transitions.
 
@@ -20,13 +20,13 @@ console.log(easing(1.0)); // 1.0
 
 (this schema is from the CSS spec)
 
-[![TimingFunction.png](https://www.w3.org/TR/css-timing-1/cubic-bezier-timing-curve.svg)](http://www.w3.org/TR/css3-transitions/#transition-timing-function-property)
+[![TimingFunction.png](https://www.w3.org/TR/css-easing-1/images/cubic-bezier-easing-curve.svg)](https://www.w3.org/TR/css-easing-1/#cubic-bezier-easing-functions)
 
 > `BezierEasing(P1.x, P1.y, P2.x, P2.y)`
 
 ## Install
 
-[![npm install bezier-easing](https://nodei.co/npm/bezier-easing.png)](http://npmjs.org/package/bezier-easing)
+[![npm install bezier-easing](https://nodei.co/npm/bezier-easing.png)](https://npmjs.org/package/bezier-easing)
 
 It is the equivalent to [CSS Transitions' `transition-timing-function`](http://www.w3.org/TR/css-easing-1/#cubic-bezier-easing-functions).
 
@@ -39,8 +39,6 @@ MIT License.
 
 ## Tests
 
-[![Build Status](https://img.shields.io/travis/gre/bezier-easing.svg)](https://travis-ci.org/gre/bezier-easing)
-
 ```
 npm test
 ```
@@ -51,10 +49,10 @@ npm test
 
 # Who use it?
 
-- [React Native](https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/bezier.js)
+- [React Native](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Animated/bezier.js)
 - [Apple®](http://images.apple.com/v/mac-pro/home/b/scripts/overview.js) :)
 - [Velocity.js](https://github.com/julianshapiro/velocity)
-- [GLSL.io](http://glsl.io/) and [Diaporama Maker](https://github.com/gre/diaporama-maker)
+- [Diaporama Maker](https://github.com/gre/diaporama-maker)
 - [ipo](https://github.com/gre/ipo)
 
 ## More informations
