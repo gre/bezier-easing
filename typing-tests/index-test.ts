@@ -1,4 +1,4 @@
-import * as bezier from "../src/index";
+import bezier, { EasingFunction } from "../src/index";
 
-const easingFunction: bezier.EasingFunction = bezier(1, 1, 1, 1);
+const easingFunction: EasingFunction = bezier(1, 1, 1, 1);
 const result = easingFunction(0);
