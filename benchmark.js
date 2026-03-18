@@ -1,5 +1,5 @@
-var BezierEasing = require(".");
-var Benchmark = require("benchmark");
+import BezierEasing from "./src/index.js";
+import Benchmark from "benchmark";
 
 var suite = new Benchmark.Suite();
 

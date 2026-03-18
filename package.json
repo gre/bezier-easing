@@ -12,8 +12,15 @@
     "timing-function"
   ],
   "author": "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>",
-  "main": "src/index.js",
+  "type": "module",
+  "main": "./src/index.js",
   "types": "src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./dist/bezier-easing.cjs"
+    }
+  },
   "files": [
     "src",
     "dist"
@@ -25,7 +32,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "benchmark": "node benchmark.js",
-    "prepublish": "rm -rf dist && mkdir -p dist && npm run build-dev && npm run build-prod",
+    "prepublish": "rm -rf dist && mkdir -p dist && npm run build-cjs && npm run build-dev && npm run build-prod",
+    "build-cjs": "esbuild src/index.js --bundle --format=cjs --footer:js='module.exports = module.exports.default;' --outfile=dist/bezier-easing.cjs",
     "build-dev": "esbuild src/index.js --bundle --global-name=BezierEasing --outfile=dist/bezier-easing.js",
     "build-prod": "esbuild src/index.js --bundle --global-name=BezierEasing --minify --outfile=dist/bezier-easing.min.js"
   },
