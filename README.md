@@ -1,5 +1,4 @@
-bezier-easing [![Build Status](https://img.shields.io/travis/gre/bezier-easing.svg)](https://travis-ci.org/gre/bezier-easing)
-===
+# bezier-easing [![Build Status](https://img.shields.io/travis/gre/bezier-easing.svg)](https://travis-ci.org/gre/bezier-easing)
 
 BezierEasing provides **Cubic Bezier** Curve easing which generalizes easing functions (ease-in, ease-out, ease-in-out, ...any other custom curve) exactly like in CSS Transitions.
 
@@ -9,8 +8,7 @@ This micro library uses fast heuristics (involving dichotomic search, newton-rap
 
 > It is heavily based on implementations available in Firefox and Chrome (for the CSS transition-timing-function property).
 
-Usage
--------
+## Usage
 
 ```javascript
 var easing = BezierEasing(0, 0, 1, 0.5);
@@ -26,24 +24,20 @@ console.log(easing(1.0)); // 1.0
 
 > `BezierEasing(P1.x, P1.y, P2.x, P2.y)`
 
-Install
--------
+## Install
 
 [![npm install bezier-easing](https://nodei.co/npm/bezier-easing.png)](http://npmjs.org/package/bezier-easing)
 
 It is the equivalent to [CSS Transitions' `transition-timing-function`](http://www.w3.org/TR/css-easing-1/#cubic-bezier-easing-functions).
 
-
 In the same way you can define in CSS `cubic-bezier(0.42, 0, 0.58, 1)`,
 with BezierEasing, you can define it using `BezierEasing(0.42, 0, 0.58, 1)` which have the `` function taking an X and computing the Y interpolated easing value (see schema).
 
-License
--------
+## License
 
 MIT License.
 
-Tests
----
+## Tests
 
 [![Build Status](https://img.shields.io/travis/gre/bezier-easing.svg)](https://travis-ci.org/gre/bezier-easing)
 
@@ -51,13 +45,11 @@ Tests
 npm test
 ```
 
-See also
-===
+# See also
 
 - [https://github.com/gre/bezier-easing-editor/](https://github.com/gre/bezier-easing-editor/)
 
-Who use it?
-===
+# Who use it?
 
 - [React Native](https://github.com/facebook/react-native/blob/master/Libraries/Animated/src/bezier.js)
 - [Apple®](http://images.apple.com/v/mac-pro/home/b/scripts/overview.js) :)
@@ -65,13 +57,11 @@ Who use it?
 - [GLSL.io](http://glsl.io/) and [Diaporama Maker](https://github.com/gre/diaporama-maker)
 - [ipo](https://github.com/gre/ipo)
 
-More informations
------------------
+## More informations
 
 Implementation based on this [article](http://greweb.me/2012/02/bezier-curve-based-easing-functions-from-concept-to-implementation/).
 
-Contributing
-------------
+## Contributing
 
 You need a `node` installed.
 
@@ -84,5 +74,6 @@ npm install
 The library is in `src/index.js`.
 
 Ensure any modification will:
+
 - keep validating the tests (run `npm test`)
 - not bring performance regression (compare with `npm run benchmark` – don't rely 100% on its precision but it still helps to notice big gaps)

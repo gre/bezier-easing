@@ -21,14 +21,21 @@
   "license": "MIT",
   "scripts": {
     "test": "vitest run",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "benchmark": "node benchmark.js",
     "prepublish": "rm -rf dist && mkdir -p dist && npm run build-dev && npm run build-prod",
     "build-dev": "esbuild src/index.js --bundle --global-name=BezierEasing --outfile=dist/bezier-easing.js",
     "build-prod": "esbuild src/index.js --bundle --global-name=BezierEasing --minify --outfile=dist/bezier-easing.min.js"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "benchmark": "^2.1.0",
     "esbuild": "^0.27.0",
+    "eslint": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.1",
     "vitest": "^4.1.0"
   },
   "repository": {

@@ -9,6 +9,8 @@ bezier-easing is a micro-library that provides cubic Bezier curve easing functio
 ## Commands
 
 - **Test:** `npm test` (runs vitest)
+- **Lint:** `npm run lint` (eslint)
+- **Format:** `npm run format` (prettier --write) / `npm run format:check`
 - **Benchmark:** `npm run benchmark`
 - **Build:** `npm run prepublish` (esbuild → dist/)
 
@@ -20,4 +22,4 @@ The algorithm precomputes 11 sample points on the curve, then for a given x: loo
 
 ## Code Style
 
-2-space indent, single quotes, semicolons, unix line endings (`.eslintrc` present but eslint not in devDependencies).
+Enforced by Prettier (`.prettierrc`) + ESLint (`eslint.config.mjs`). 2-space indent, double quotes, semicolons, trailing commas (es5), unix line endings. CI runs both `format:check` and `lint`.
