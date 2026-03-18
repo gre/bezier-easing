@@ -13,8 +13,7 @@
   ],
   "author": "Gaëtan Renaudeau <renaudeau.gaetan@gmail.com>",
   "type": "module",
-  "main": "./dist/bezier-easing.cjs",
-  "module": "./src/index.js",
+  "main": "./src/index.js",
   "types": "src/index.d.ts",
   "exports": {
     ".": {
