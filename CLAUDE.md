@@ -8,10 +8,9 @@ bezier-easing is a micro-library that provides cubic Bezier curve easing functio
 
 ## Commands
 
-- **Test:** `npm test` (runs mocha)
+- **Test:** `npm test` (runs vitest)
 - **Benchmark:** `npm run benchmark`
-- **Visual demo:** `npm run visual` (uses budo dev server)
-- **Build:** `npm run prepublish` (browserify → dist/)
+- **Build:** `npm run prepublish` (esbuild → dist/)
 
 ## Architecture
 
@@ -21,4 +20,4 @@ The algorithm precomputes 11 sample points on the curve, then for a given x: loo
 
 ## Code Style
 
-ESLint enforced: 2-space indent, single quotes, semicolons, unix line endings.
+2-space indent, single quotes, semicolons, unix line endings (`.eslintrc` present but eslint not in devDependencies).
