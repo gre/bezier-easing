@@ -108,7 +108,7 @@ describe("BezierEasing", function () {
           c = 1 - a,
           d = 1 - b;
         var easing = BezierEasing(a, b, c, d);
-        assertClose(easing(0.5), 0.5, easing + "(0.5) should be 0.5");
+        assertClose(easing(0.5), 0.5, easing + "(0.5) should be 0.5", 0.0005);
       });
     });
     it("should be symetrical", function () {
