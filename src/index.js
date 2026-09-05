@@ -22,7 +22,7 @@ const x2t = (x, a, b, c, d) => {
     const root = sqrt(s);
     return cbrt(q + root) + cbrt(q - root) - d;
   }
-  const l = cbrt(sqrt(q * q - s));
+  const l = cbrt(sqrt(-c));
   const angle = q ? Math.atan(sqrt(-s) / q) : -π / 2;
   let φ;
   if (b < 0) {
