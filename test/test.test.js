@@ -162,6 +162,83 @@ describe("BezierEasing", function () {
         });
       });
     });
+    // x2 = 1 makes t = 1 a double root of x(t) = 1 (and x1 = 0 does for t = 0):
+    // close to it, the cubic has two nearly equal roots
+    it("should pick the right root next to a double root", function () {
+      var x2s = [1, 1 - 1e-15, 1 - 1e-12, 1 - 1e-9, 1 - 1e-6, 1 - 1e-3];
+      var xs = [
+        1 - Number.EPSILON / 2,
+        1 - Number.EPSILON,
+        1 - 1e-15,
+        1 - 1e-12,
+      ];
+      for (var i = 0; i <= 240; ++i) {
+        var x1 = i / 240;
+        x2s.forEach(function (x2) {
+          // the curve and its symmetric (t → 1 - t), near t = 0
+          [
+            [x1, x2, xs],
+            [1 - x2, 1 - x1, xs.map((x) => 1 - x)],
+          ].forEach(function (c) {
+            var solve = BezierEasing(c[0], 1 / 3, c[1], 2 / 3);
+            c[2].forEach(function (x) {
+              var t = solve(x);
+              var expected = referenceT(c[0], c[1], x);
+              if (!(t >= 0 && t <= 1 && Math.abs(t - expected) < 1e-5)) {
+                fail(
+                  [c[0], 1 / 3, c[1], 2 / 3],
+                  x,
+                  "t = " + t + ", expected " + expected
+                );
+              }
+            });
+          });
+        });
+      }
+    });
+    it("should keep finite, monotonic results down to the smallest x", function () {
+      var xs = [];
+      for (var e = -16; e >= -323; --e) xs.push(Math.pow(10, e));
+      xs.push(Number.MIN_VALUE);
+      forEachCurve(controlXPairs(), function (x1, x2) {
+        var solve = BezierEasing(x1, 1 / 3, x2, 2 / 3);
+        var prev = 1;
+        xs.forEach(function (x) {
+          var t = solve(x);
+          if (!(t >= 0 && t <= prev)) {
+            fail([x1, 1 / 3, x2, 2 / 3], x, "t = " + t + " after " + prev);
+          }
+          prev = t;
+        });
+      });
+    });
+    it("should keep relative precision for tiny x", function () {
+      // for x → 0, x(t) ≈ 3·x1·t, or 3·x2·t² when x1 = 0, or t³ when x1 = x2 = 0
+      var expectations = [];
+      [1e-3, 0.25, 0.5, 1].forEach(function (x1) {
+        [0, 0.5, 1].forEach(function (x2) {
+          expectations.push([x1, x2, (x) => x / (3 * x1)]);
+        });
+      });
+      [1e-3, 0.25, 1].forEach(function (x2) {
+        expectations.push([0, x2, (x) => Math.sqrt(x / (3 * x2))]);
+      });
+      expectations.push([0, 0, Math.cbrt]);
+      expectations.forEach(function (e) {
+        var solve = BezierEasing(e[0], 1 / 3, e[1], 2 / 3);
+        TINY_XS.forEach(function (x) {
+          var t = solve(x);
+          var expected = e[2](x);
+          if (!(Math.abs(t - expected) <= 1e-9 * expected)) {
+            fail(
+              [e[0], 1 / 3, e[1], 2 / 3],
+              x,
+              "t = " + t + ", expected " + expected
+            );
+          }
+        });
+      });
+    });
   });
 
   describe("precision against a reference solver", function () {
@@ -270,7 +347,12 @@ function seededRandom(seed) {
 
 var gridXs = [];
 for (var gi = 1; gi < 200; ++gi) gridXs.push(gi / 200);
+// x small enough for higher order terms of x(t) to be negligible
+var TINY_XS = [1e-30, 1e-50, 1e-100, 1e-200, 1e-300];
+
 var extremeXs = [
+  1 - Number.EPSILON / 2,
+  1 - Number.EPSILON,
   1e-15,
   1e-12,
   1e-9,
