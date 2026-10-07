@@ -50,9 +50,9 @@ npm test
 # Who use it?
 
 - [React Native](https://github.com/facebook/react-native/blob/main/packages/react-native/Libraries/Animated/bezier.js)
-- [Apple®](http://images.apple.com/v/mac-pro/home/b/scripts/overview.js) :)
-- [Velocity.js](https://github.com/julianshapiro/velocity)
-- [Diaporama Maker](https://github.com/gre/diaporama-maker)
+- [Apple®](https://www.apple.com/v/airpods-pro/t/built/scripts/overview/main.built.js) :)
+- [lottie-web](https://github.com/airbnb/lottie-web/blob/master/player/js/3rd_party/BezierEaser.js)
+- [Velocity.js](https://github.com/julianshapiro/velocity/blob/master/src/Velocity/easing/bezier.ts)
 - [ipo](https://github.com/gre/ipo)
 
 ## More informations
