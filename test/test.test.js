@@ -310,6 +310,32 @@ describe("BezierEasing", function () {
     });
   });
 
+  describe("x outside [0, 1]", function () {
+    var curves = [
+      [0.25, 0.1, 0.25, 1],
+      [0, 0, 1, 1.0001],
+      [0.68, -0.6, 0.32, 1.6],
+      [0, 0, 1 / 3, 1],
+      [0, 0, 1, 1], // linear
+    ];
+    it("should clamp x to [0, 1]", function () {
+      curves.forEach(function (p) {
+        var easing = BezierEasing(p[0], p[1], p[2], p[3]);
+        [-1e-17, -Number.MIN_VALUE, -0.5, -1, -Infinity].forEach(function (x) {
+          expect(easing(x), "BezierEasing(" + p + ")(" + x + ")").toBe(0);
+        });
+        [1 + Number.EPSILON, 1.5, 2, Infinity].forEach(function (x) {
+          expect(easing(x), "BezierEasing(" + p + ")(" + x + ")").toBe(1);
+        });
+      });
+    });
+    it("should return NaN for NaN", function () {
+      curves.forEach(function (p) {
+        expect(BezierEasing(p[0], p[1], p[2], p[3])(NaN)).toBeNaN();
+      });
+    });
+  });
+
   describe("output range", function () {
     it("should stay in [0, 1] and be monotonic when y1, y2 are in [0, 1]", function () {
       var random = seededRandom(2);

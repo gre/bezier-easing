@@ -16,6 +16,8 @@ var easing = BezierEasing(0, 0, 1, 0.5);
 console.log(easing(0.0)); // 0.0
 console.log(easing(0.5)); // 0.3125
 console.log(easing(1.0)); // 1.0
+// x outside [0.0,1.0] is clamped
+console.log(easing(1.5)); // 1.0
 ```
 
 (this schema is from the CSS spec)

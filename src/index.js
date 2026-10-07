@@ -7,8 +7,9 @@
  * http://dmitry.baranovskiy.com/bezier-easing.html
  */
 
+// x is clamped to [0, 1] (NaN stays NaN)
 function LinearEasing(x) {
-  return x;
+  return x <= 0 ? 0 : x >= 1 ? 1 : x;
 }
 
 const { min, max, cbrt, sqrt, acos, cos } = Math;
@@ -65,8 +66,8 @@ export default function bezier(mX1, mY1, mX2, mY2) {
   const cy = 3 * mY1;
 
   return function BezierEasing(x) {
-    if (x === 0 || x === 1) {
-      return x;
+    if (!(x > 0 && x < 1)) {
+      return LinearEasing(x);
     }
     return Y(x2t(x, a, b, c), ay, by, cy);
   };
