@@ -11,31 +11,36 @@ function LinearEasing(x) {
   return x;
 }
 
-const { cbrt, sqrt, PI: π } = Math;
+const { min, max, cbrt, sqrt, acos, cos } = Math;
 
-// Solve cubic bezier x(t) = x for t using Cardano's formula
-// Parameters are precomputed coefficients from the bezier control points
-const x2t = (x, a, b, c, d) => {
-  const q = a + b * x;
-  const s = q ** 2 + c;
-  if (s > 0) {
-    const root = sqrt(s);
-    return cbrt(q + root) + cbrt(q - root) - d;
-  }
-  const l = cbrt(sqrt(-c));
-  const angle = q ? Math.atan(sqrt(-s) / q) : -π / 2;
-  let φ;
-  if (b < 0) {
-    φ = (q > 0 ? 2 * π : π) - angle;
-  } else if (d < 0) {
-    φ = (q > 0 ? 2 * π : -3 * π) + angle;
+// Solve x(t) = ((2a * t + 3b) * t + 3c) * t = x for t in [0, 1].
+// With u = 1/t, u is the largest real root of x·u³ − 3c·u² − 3b·u − 2a = 0
+// (t is the only root in (0, 1] since x(t) is monotonic). Unlike solving for t,
+// nothing is divided by the cubic coefficient a, so it stays stable when x(t) is
+// (nearly) quadratic, and small t are computed with full relative precision.
+// Depressed with u = v + s: v³ − 3m·v + 2h = 0
+const x2t = (x, a, b, c) => {
+  const i = 1 / x;
+  const s = c * i;
+  const q = b * i;
+  const m = s * s + q;
+  const h = -s * (s * s + 1.5 * q) - a * i;
+  const D = h * h - m * m * m;
+  let v;
+  if (D > 0) {
+    // one real root (Cardano), taking the cube root that does not cancel
+    const U = -cbrt(h < 0 ? h - sqrt(D) : h + sqrt(D));
+    v = U + m / U;
   } else {
-    φ = (q > 0 ? 0 : π) + angle;
+    // three real roots, take the largest (|| 0: triple root, m = h = 0)
+    const r = sqrt(m);
+    v = 2 * r * cos(acos(max(-1, min(1, -h / (m * r) || 0))) / 3);
   }
-  return 2 * l * Math.cos(φ / 3) - d;
+  // || 0: x so small (< 1e-307) that 1/x overflows
+  return min(1, 1 / (v + s)) || 0;
 };
 
-const Y = (t, ay, by, cy) => ((ay * t + 3 * by) * t + cy) * t;
+const Y = (t, ay, by, cy) => ((ay * t + by) * t + cy) * t;
 
 export default function bezier(mX1, mY1, mX2, mY2) {
   if (!(0 <= mX1 && mX1 <= 1 && 0 <= mX2 && mX2 <= 1)) {
@@ -46,29 +51,18 @@ export default function bezier(mX1, mY1, mX2, mY2) {
     return LinearEasing;
   }
 
-  const a = 6 * (3 * mX1 - 3 * mX2 + 1);
-  const b = 6 * (mX2 - 2 * mX1);
-  const c = 3 * mX1;
-
-  const a2 = a * a;
-  const b2 = b * b;
-
-  const d = b / a;
-  const e = (3 * b * c) / a2 - (b2 * b) / (a2 * a);
-  const w1 = (2 * c) / a - b2 / a2;
-  const w = w1 * w1 * w1;
-  const o = 3 / a;
+  const a = (3 * mX1 - 3 * mX2 + 1) / 2;
+  const b = mX2 - 2 * mX1;
+  const c = mX1;
 
   const ay = 3 * mY1 - 3 * mY2 + 1;
-  const by = mY2 - 2 * mY1;
+  const by = 3 * (mY2 - 2 * mY1);
   const cy = 3 * mY1;
-
-  const X2T = a ? x2t : LinearEasing;
 
   return function BezierEasing(x) {
     if (x === 0 || x === 1) {
       return x;
     }
-    return Y(X2T(x, e, o, w, d), ay, by, cy);
+    return Y(x2t(x, a, b, c), ay, by, cy);
   };
 }
